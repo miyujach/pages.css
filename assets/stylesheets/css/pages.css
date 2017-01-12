@@ -397,6 +397,10 @@
 
 .block-f { display: block !important; }
 
+.none { display: none; }
+
+.none-f { display: none !important; }
+
 .inline { display: inline; }
 
 .inline-f { display: inline !important; }
@@ -409,6 +413,8 @@
   .flex-sm-f { display: flex !important; }
   .block-sm { display: block; }
   .block-sm-f { display: block !important; }
+  .none-sm { display: none; }
+  .none-sm-f { display: none !important; }
   .inline-sm { display: inline; }
   .inline-sm-f { display: inline !important; }
   .inline-block-sm { display: inline-block; }
@@ -417,6 +423,8 @@
   .flex-md-f { display: flex !important; }
   .block-md { display: block; }
   .block-md-f { display: block !important; }
+  .none-md { display: none; }
+  .none-md-f { display: none !important; }
   .inline-md { display: inline; }
   .inline-md-f { display: inline !important; }
   .inline-block-md { display: inline-block; }
@@ -425,6 +433,8 @@
   .flex-lg-f { display: flex !important; }
   .block-lg { display: block; }
   .block-lg-f { display: block !important; }
+  .none-lg { display: none; }
+  .none-lg-f { display: none !important; }
   .inline-lg { display: inline; }
   .inline-lg-f { display: inline !important; }
   .inline-block-lg { display: inline-block; }

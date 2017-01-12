@@ -339,6 +339,7 @@
 @include makeClassResponsive(
 	("flex", "display", flex), 
 	("block", "display", block), 
+	("none", "display", none), 
 	("inline", "display", inline), 
 	("inline-block", "display", inline-block)
 );
