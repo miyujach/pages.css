@@ -1,0 +1,93 @@
+/* *****************************
+* F O N T - S I Z E    M I X I N 
+	 @include font-size(13);
+********************************/
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+
+/* **************************************************************
+* M A K E - C L A S - S R E S P O N S I V E - A U T O   M I X I N 
+
+	@include make-class-responsive-auto(
+			valeurDepart, valeurFin,
+			("nomDeLaClass", "proprieteCss"),
+			("nomDeLaClass", "proprieteCss")
+	);
+****************************************************************/
+@mixin make-class-responsive-auto($from, $through, $cssValue...) {
+		
+	@each $css in $cssValue {
+		@for $i from $from through $through {
+			.#{nth($css,1)}-#{$i} { #{nth($css,2)} : #{$i}px; }
+			.#{nth($css,1)}-#{$i}-f { #{nth($css,2)} : #{$i}px !important; }
+		}
+	}
+
+	@media (min-width: 768px) {
+		@each $css in $cssValue {
+			@for $i from $from through $through {
+				.#{nth($css,1)}-#{$i}-sm { #{nth($css,2)} : #{$i}px; }
+				.#{nth($css,1)}-#{$i}-sm-f { #{nth($css,2)} : #{$i}px !important; }
+			}
+		}
+	}
+
+	@media (min-width: 992px) {
+		@each $css in $cssValue {
+			@for $i from $from through $through {
+				.#{nth($css,1)}-#{$i}-md { #{nth($css,2)} : #{$i}px; }
+				.#{nth($css,1)}-#{$i}-md-f { #{nth($css,2)} : #{$i}px !important; }
+			}
+		}
+	}
+
+	@media (min-width: 1200px) {
+		@each $css in $cssValue {
+			@for $i from $from through $through {
+				.#{nth($css,1)}-#{$i}-lg { #{nth($css,2)} : #{$i}px; }
+				.#{nth($css,1)}-#{$i}-lg-f { #{nth($css,2)} : #{$i}px !important; }
+			}
+		}
+	}
+
+}
+
+
+/* ****************************************
+* F O N T - S I Z E    M I X I N 
+
+	@include makeClassResponsiveWidthRange(
+			("nomDeLaClass", "proprieteCss", valeurCss),
+			("nomDeLaClass", "proprieteCss", valeurCss)
+	);
+******************************************/
+@mixin makeClassResponsive($cssValue...) {
+    @each $css in $cssValue {
+		.#{nth($css,1)} { #{nth($css,2)} : nth($css,3); }
+		.#{nth($css,1)}-f { #{nth($css,2)} : nth($css,3) !important; }
+	}
+	
+	@media (min-width: 768px) {
+		@each $css in $cssValue {
+			.#{nth($css,1)}-sm { #{nth($css,2)} : nth($css,3); }
+			.#{nth($css,1)}-sm-f { #{nth($css,2)} : nth($css,3) !important; }
+		}
+	}
+	
+	@media (min-width: 992px) {
+		@each $css in $cssValue {
+			.#{nth($css,1)}-md { #{nth($css,2)} : nth($css,3); }
+			.#{nth($css,1)}-md-f { #{nth($css,2)} : nth($css,3) !important; }
+		}
+	}
+
+	@media (min-width: 1200px) {
+		@each $css in $cssValue {
+			.#{nth($css,1)}-lg { #{nth($css,2)} : nth($css,3); }
+			.#{nth($css,1)}-lg-f { #{nth($css,2)} : nth($css,3) !important; }
+		}
+	}
+}
