@@ -26,6 +26,15 @@
 		}
 	}
 
+	@media (max-width: 767px) {
+		@each $css in $cssValue {
+			@for $i from $from through $through {
+				.#{nth($css,1)}-#{$i}-xs { #{nth($css,2)} : #{$i}px; }
+				.#{nth($css,1)}-#{$i}-xs-f { #{nth($css,2)} : #{$i}px !important; }
+			}
+		}
+	}
+
 	@media (min-width: 768px) {
 		@each $css in $cssValue {
 			@for $i from $from through $through {
@@ -70,6 +79,14 @@
 		.#{nth($css,1)}-f { #{nth($css,2)} : nth($css,3) !important; }
 	}
 	
+	@media (max-width: 767px) {
+		@each $css in $cssValue {
+			.#{nth($css,1)}-xs { #{nth($css,2)} : nth($css,3); }
+			.#{nth($css,1)}-xs-f { #{nth($css,2)} : nth($css,3) !important; }
+			
+		}
+	}
+
 	@media (min-width: 768px) {
 		@each $css in $cssValue {
 			.#{nth($css,1)}-sm { #{nth($css,2)} : nth($css,3); }
