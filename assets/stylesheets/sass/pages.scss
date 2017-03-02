@@ -323,16 +323,28 @@
 	("absolute", "position", absolute)
 );
 
+
 /* Generic Position Absolute Helpers */
-@include makeClassResponsive(
-	("b-0", "bottom",  0),
-	("t-0", "top",  0),
-	("r-0", "right",  0),
-	("l-0", "left",  0),
-	("b-100", "bottom",  100%),
-	("t-100", "top",  100%),
-	("r-100", "right",  100%),
-	("l-100", "left",  100%)
+@include make-class-responsive-auto(
+		0, 100, 1, "%",
+		("b-per", "bottom"),
+		("t-per", "top"),
+		("r-per", "right"),
+		("l-per", "left")
+);
+@include make-class-responsive-auto(
+		0, 20, 1, px,
+		("b", "bottom"),
+		("t", "top"),
+		("r", "right"),
+		("l", "left")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
+		("b", "bottom"),
+		("t", "top"),
+		("r", "right"),
+		("l", "left")
 );
 
 /* Generic Display Helpers */
@@ -428,8 +440,14 @@
 /* ----------------------------- */
 /* ---- FONT SIZE HELPERS ---- */
 /* ----------------------------- */
+/* De 0 a 20 px avec un gap de 1 etre chaque valeur */
 @include make-class-responsive-auto(
-		0, 100,
+		0, 20, 1, px,
+		("fs", "font-size")
+);
+/* De 20 a 100 px avec un gap de 2 etre chaque valeur */
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("fs", "font-size")
 );
 
@@ -437,7 +455,11 @@
 /* ---- LINE-HEIGHT HELPERS ---- */
 /* ----------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("lh", "line-height")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("lh", "line-height")
 );
 @include makeClassResponsive(
@@ -451,7 +473,11 @@
 /* ---- HEIGHT HELPERS ---- */
 /* ------------------------ */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("h", "height")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("h", "height")
 );
 @include makeClassResponsive(
@@ -466,7 +492,11 @@
 /* ---- MIN-HEIGHT HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("min-h", "min-height")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("min-h", "min-height")
 );
 @include makeClassResponsive(
@@ -481,7 +511,11 @@
 /* ---- MAX-HEIGHT HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("max-h", "max-height")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("max-h", "max-height")
 );
 @include makeClassResponsive(
@@ -496,8 +530,20 @@
 /* ---- WIDTH HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
 		("w", "width")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
+		("w", "width")
+);
+@include make-class-responsive-auto(
+		0, 20, 1, "%",
+		("w-per", "width")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, "%",
+		("w-per", "width")
 );
 @include makeClassResponsive(
 	("w-auto", 	 "width", 	auto)
@@ -511,7 +557,11 @@
 /* ---- MIN-WIDTH HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("min-w", "min-width")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("min-w", "min-width")
 );
 @include makeClassResponsive(
@@ -527,11 +577,15 @@
 /* ---- MAX-WIDTH HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("max-w", "max-width")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("max-w", "max-width")
 );
 @include makeClassResponsive(
-	("max-w-auto", 	 "max-width", 	auto)
+	("max-w-auto", "max-width", auto)
 );
 
 
@@ -543,7 +597,16 @@
 /* ---- PADDING HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("padding", "padding"),
+		("p-t", "padding-top"),
+		("p-b", "padding-bottom"),
+		("p-l", "padding-left"),
+		("p-r", "padding-right")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
+		("padding", "padding"),
 		("p-t", "padding-top"),
 		("p-b", "padding-bottom"),
 		("p-l", "padding-left"),
@@ -561,7 +624,14 @@
 /* ---- MARGIN POSITIVE HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		0,100,
+		0, 20, 1, px,
+		("m-t", "margin-top"),
+		("m-b", "margin-bottom"),
+		("m-l", "margin-left"),
+		("m-r", "margin-right")
+);
+@include make-class-responsive-auto(
+		22, 100, 2, px,
 		("m-t", "margin-top"),
 		("m-b", "margin-bottom"),
 		("m-l", "margin-left"),
@@ -580,10 +650,17 @@
 /* ---- MARGIN NEGATIVE HELPERS ---- */
 /* ---------------------------- */
 @include make-class-responsive-auto(
-		-100, 0,
-		("m-t-", "margin-top"),
-		("m-b-", "margin-bottom"),
-		("m-l-", "margin-left"),
-		("m-r-", "margin-right")
+		-20, 0, 1, px,
+		("m-t", "margin-top"),
+		("m-b", "margin-bottom"),
+		("m-l", "margin-left"),
+		("m-r", "margin-right")
+);
+@include make-class-responsive-auto(
+		-100, -22, 2, px,
+		("m-t", "margin-top"),
+		("m-b", "margin-bottom"),
+		("m-l", "margin-left"),
+		("m-r", "margin-right")
 );
 

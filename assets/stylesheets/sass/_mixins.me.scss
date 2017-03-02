@@ -1,10 +1,25 @@
 /* *****************************
 * F O N T - S I Z E    M I X I N 
-	 @include font-size(13);
+
+---
+Pour utiliser cette mixin,
+il faut - html, body {font-size: 100%}
+---
+Valeur par defaut des browser 16pt soit 21px
+
+ Les deux parametres sont optionels
+ @include font-size(valeur en pixel, valeur en pixel)
+ @include font-size(13);
+
+
+
 ********************************/
-@mixin font-size($sizeValue: 1.6) {
-  font-size: ($sizeValue * 10) + px;
-  font-size: $sizeValue + rem;
+@mixin font-size($sizeValue: 16, $browserDefautSize: 16) {
+//  font-size: ($sizeValue * (72 / 96) ) + pt;
+//  font-size: ($sizeValue ) + px;
+//  font-size: ($sizeValue / $browserDefautSize) * 100%;
+//  font-size: ($sizeValue / $browserDefautSize) + em;
+//  font-size: ($sizeValue / $browserDefautSize) + rem;
 }
 
 
@@ -12,25 +27,33 @@
 * M A K E - C L A S - S R E S P O N S I V E - A U T O   M I X I N 
 
 	@include make-class-responsive-auto(
-			valeurDepart, valeurFin,
+			valeurDepart,
+			valeurFin,
+			sautEntreLesValeurs,
+			uniteDeLaValeur(optionnel),
 			("nomDeLaClass", "proprieteCss"),
-			("nomDeLaClass", "proprieteCss")
+			("nomDeLaClass", "proprieteCss"),
+			...
 	);
 ****************************************************************/
-@mixin make-class-responsive-auto($from, $through, $cssValue...) {
+@mixin make-class-responsive-auto($from, $through, $step, $unit, $cssValue...) {
 		
 	@each $css in $cssValue {
 		@for $i from $from through $through {
-			.#{nth($css,1)}-#{$i} { #{nth($css,2)} : #{$i}px; }
-			.#{nth($css,1)}-#{$i}-f { #{nth($css,2)} : #{$i}px !important; }
+			@if $i % $step == 0{
+				.#{nth($css,1)}-#{$i} { #{nth($css,2)} : #{$i}#{$unit}; }
+				.#{nth($css,1)}-#{$i}-f { #{nth($css,2)} : #{$i}#{$unit} !important; }
+			}
 		}
 	}
 
 	@media (max-width: 767px) {
 		@each $css in $cssValue {
 			@for $i from $from through $through {
-				.#{nth($css,1)}-#{$i}-xs { #{nth($css,2)} : #{$i}px; }
-				.#{nth($css,1)}-#{$i}-xs-f { #{nth($css,2)} : #{$i}px !important; }
+				@if $i % $step == 0{
+					.#{nth($css,1)}-#{$i}-xs { #{nth($css,2)} : #{$i}#{$unit}; }
+					.#{nth($css,1)}-#{$i}-xs-f { #{nth($css,2)} : #{$i}#{$unit} !important; }
+				}
 			}
 		}
 	}
@@ -38,8 +61,10 @@
 	@media (min-width: 768px) {
 		@each $css in $cssValue {
 			@for $i from $from through $through {
-				.#{nth($css,1)}-#{$i}-sm { #{nth($css,2)} : #{$i}px; }
-				.#{nth($css,1)}-#{$i}-sm-f { #{nth($css,2)} : #{$i}px !important; }
+				@if $i % $step == 0{
+					.#{nth($css,1)}-#{$i}-sm { #{nth($css,2)} : #{$i}#{$unit}; }
+					.#{nth($css,1)}-#{$i}-sm-f { #{nth($css,2)} : #{$i}#{$unit} !important; }
+				}
 			}
 		}
 	}
@@ -47,8 +72,10 @@
 	@media (min-width: 992px) {
 		@each $css in $cssValue {
 			@for $i from $from through $through {
-				.#{nth($css,1)}-#{$i}-md { #{nth($css,2)} : #{$i}px; }
-				.#{nth($css,1)}-#{$i}-md-f { #{nth($css,2)} : #{$i}px !important; }
+				@if $i % $step == 0{
+					.#{nth($css,1)}-#{$i}-md { #{nth($css,2)} : #{$i}#{$unit}; }
+					.#{nth($css,1)}-#{$i}-md-f { #{nth($css,2)} : #{$i}#{$unit} !important; }
+				}
 			}
 		}
 	}
@@ -56,8 +83,10 @@
 	@media (min-width: 1200px) {
 		@each $css in $cssValue {
 			@for $i from $from through $through {
-				.#{nth($css,1)}-#{$i}-lg { #{nth($css,2)} : #{$i}px; }
-				.#{nth($css,1)}-#{$i}-lg-f { #{nth($css,2)} : #{$i}px !important; }
+				@if $i % $step == 0{
+					.#{nth($css,1)}-#{$i}-lg { #{nth($css,2)} : #{$i}#{$unit}; }
+					.#{nth($css,1)}-#{$i}-lg-f { #{nth($css,2)} : #{$i}#{$unit} !important; }
+				}
 			}
 		}
 	}
