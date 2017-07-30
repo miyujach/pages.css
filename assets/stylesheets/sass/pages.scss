@@ -30,7 +30,7 @@
 
 
 /* Generic Row Helpers */
-.row{margin-right:-15px;margin-left:-15px; z-index: -1;}
+.row{margin-right:-15px;margin-left:-15px;}
 .clearfix:before,
 .clearfix:after,
 .dl-horizontal dd:before,
@@ -307,7 +307,7 @@
 .b-rad-sm{border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px}
 .b-rad-md{border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px}
 .b-rad-lg{border-radius:7px;-webkit-border-radius:7px;-moz-border-radius:7px}
-.no-border{border:none!important}
+.b-0{border:none!important}
 
 .full-height{height:100%!important}
 .full-width{width:100%}
