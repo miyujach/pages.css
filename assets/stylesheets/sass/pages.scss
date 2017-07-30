@@ -377,6 +377,19 @@
 );
 
 
+.text-transparent{color:rgba(0,0,0,0.4)}
+.text-transparent-white{color:rgba(255,255,255,0.3)}
+.text-grey{color:#e6e6e6}
+.text-grey-darker{color:#bbb}
+.text-grey-light{color:rgba(0,0,0,0.07)}
+.text-white{color:#fff}
+.text-primary,.b-complete{border-color:#6d5cae}
+.text-success{color:#10cfbd}
+.text-info{color:#3b4752}
+.text-danger{color:#f55753}
+.text-warning{color:#f8d053}
+
+
 
 /* Scroll */
 .scrollable {
