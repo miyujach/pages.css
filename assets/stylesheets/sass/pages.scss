@@ -361,7 +361,12 @@
 	("text-left", "text-align", left), 
 	("text-right", "text-align", right), 
 	("text-center", "text-align", center), 
-	("text-justify", "text-align", justify)
+	("text-justify", "text-align", justify),
+	("text-uppercase", "text-transform", uppercase),
+	("text-lowercase", "text-transform", lowercase),
+	("text-underline", "text-decoration", underline),
+	("text-overline", "text-decoration", overline),
+	("text-striped", "text-decoration", line-through)
 );
 
 /* Text transform Helpers */
